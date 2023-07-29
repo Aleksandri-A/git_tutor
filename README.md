@@ -235,5 +235,8 @@ Staging area также называют index (англ. «каталог») и
 graph LR;
   untracked -- "git add" --> staged;
   staged    -- "git commit -m 'message'"  --> tracked/comitted;
+  tracked/comitted -- изменения --> modified
 ``` 
 
+>Команда git add добавляет в staging area только текущее содержимое файла. Если вы, например, сделаете git add file.txt, а затем измените file.txt, то новое содержимое файла не будет находиться в staging.
+Git сообщит об этом с помощью статуса modified: файл изменён относительно той версии, которая уже в staging. Чтобы добавить в staging последнюю версию, нужно выполнить git add file.txt ещё раз.
